@@ -42,6 +42,10 @@ class Login extends Eloquent {
 		$temp->peopleID = $this->user->peopleID;
 		$temp->utorId = $this->user->utorId;
 		$temp->email = $this->user->email;
+		$temp->teaches = $this->user->teaches;
+		$temp->takes = $this->user->takes;
+		$temp->position = $this->user->position;
+		$temp->positionStr = $this->user->positionStr;
 
 		$this->user = $temp;
 
@@ -54,12 +58,21 @@ class Login extends Eloquent {
 	 * @param $profile The user's profile from the intranet
 	 */
 	protected function setUserCredential($profile) {
-		if ($profile->peopleID) {							
-			$user_id = User::getPrimaryKey($profile->utorid);
+		if ($profile->peopleID) {		
+			$position_data = Options::getSetting("position", true);
+			$position = null;
+
+			foreach ($position_data as $index => $data) {
+				if (strcmp((string)$profile->position, $index) == 0) {
+					$position = $data;
+					break;
+				}
+			}
 			
-			//Not auth, kick them out
-			if ($user_id == null) {
-				return null;
+			$user_id = User::getPrimaryKey($profile->utorid);
+			//Not auth, add them
+			if ($profile->position == 19) {
+				User::addUserIfNotExist($profile->utorid, $profile->givennames, $profile->familyname);
 			}
 		
 			$this->user = new User();
@@ -72,6 +85,12 @@ class Login extends Eloquent {
 			$this->user->peopleID = $profile->peopleID;
 			$this->user->utorId = $profile->utorid;
 			$this->user->email = $profile->email;
+			
+			$this->user->position = $profile->position;
+			$this->user->positionStr = $position;
+			
+			$this->user->teaches = isset($profile->teachcoursecodeWithSection) ? $profile->teachcoursecodeWithSection : array();
+			$this->user->takes = isset($profile->studycoursecodeWithSection) ? $profile->studycoursecodeWithSection : array();
 		}
 	}
 

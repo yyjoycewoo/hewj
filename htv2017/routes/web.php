@@ -1,4 +1,5 @@
 <?php
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,5 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'LoginController@logOff']);
 
 Route::group(['middleware' => 'loginCheck'], function() {
 	//View PHP Info
-	Route::get('/', function() {
-		return phpinfo();
-	});
+	Route::get('/', ['as' => 'landingPage', 'uses' => 'LandingController@showLandingPage']);
 });

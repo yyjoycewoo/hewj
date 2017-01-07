@@ -62,8 +62,8 @@ class User extends Authenticatable {
         
         $user_insert = array(
             "utorid" => $utorid,
-            "firstname" => $firstname,
-            "lastname" => $lastname,
+            "first_name" => $firstname,
+            "last_name" => $lastname,
         );
         
         //If the user exists, do nothing
