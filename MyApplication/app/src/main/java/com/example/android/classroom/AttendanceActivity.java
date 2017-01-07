@@ -2,22 +2,13 @@ package com.example.android.classroom;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.google.android.gms.common.api.GoogleApiClient;
 
 public class AttendanceActivity extends AppCompatActivity {
 
     private TextView mStudentNamesTextView;
     private LinearLayout attendanceLinearLayout;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +38,7 @@ public class AttendanceActivity extends AppCompatActivity {
         for (String name : studentNames) {
             TextView student = new TextView(this);
             student.setText(name);
+            student.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_student_name));
             student.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
