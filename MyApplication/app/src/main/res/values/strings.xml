@@ -23,6 +23,9 @@
     <string name="title_activity_question">QuestionActivity</string>
     <string name="title_activity_completion">CompletionActivity</string>
     <string name="title_menu">Menu</string>
+    <string name="title_numerical_grade">Numerical grade</string>
+    <string name="title_completion_grade">Completion grade</string>
+    <string name="title_type_of_grading">Type of grading</string>
 
     <!-- QuestionActivity -->
     <string name="question_list_title_text">Select it</string>

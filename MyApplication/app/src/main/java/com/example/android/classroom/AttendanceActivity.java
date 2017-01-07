@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 public class AttendanceActivity extends AppCompatActivity {
 
-    private TextView mStudentNamesTextView;
     private LinearLayout attendanceLinearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,30 +14,12 @@ public class AttendanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_attendance);
         attendanceLinearLayout = (LinearLayout) findViewById(R.id.attendance_list);
 
-        String[] studentNames = new String[]{
-                "Joyce",
-                "Red Toy Wagon",
-                "Chemistry Set",
-                "Yo-Yo",
-                "Pop-Up Book",
-                "Generic Uncopyrighted Mouse",
-                "Finger Paint",
-                "Sock Monkey",
-                "Microscope Set",
-                "Beach Ball",
-                "BB Gun",
-                "Green Soldiers",
-                "Bubbles",
-                "Spring Toy",
-                "Fortune Telling Ball",
-                "Plastic Connecting Blocks",
-                "Water Balloon",
-        };
+        String[] studentNames = FakeStudentNames.getStudentNames();
 
         for (String name : studentNames) {
             TextView student = new TextView(this);
             student.setText(name);
-            student.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_student_name));
+            student.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_textsize));
             student.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -50,4 +31,3 @@ public class AttendanceActivity extends AppCompatActivity {
 
     }
 }
-
