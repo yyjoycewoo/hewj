@@ -23,4 +23,8 @@
     <string name="title_activity_question">QuestionActivity</string>
     <string name="title_activity_completion">CompletionActivity</string>
     <string name="title_menu">Menu</string>
+
+    <!-- QuestionActivity -->
+    <string name="question_list_title_text">Select it</string>
+    <string name="new_question_button_text">New Question</string>
 </resources>
