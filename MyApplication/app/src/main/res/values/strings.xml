@@ -23,9 +23,7 @@
     <string name="title_activity_question">QuestionActivity</string>
     <string name="title_activity_completion">CompletionActivity</string>
     <string name="title_menu">Menu</string>
-    <string-array name="completion_dropdown_menu">
-        <item>Grade</item>
-        <item>Completion</item>
-    </string-array>
-    <string name="completion_dropdown_title">Choose exercise type</string>
+    <string name="title_numerical_grade">Numerical grade</string>
+    <string name="title_completion_grade">Completion grade</string>
+    <string name="title_type_of_grading">Type of grading</string>
 </resources>

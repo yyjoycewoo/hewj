@@ -14,14 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/completion_dropdown_title"
+        android:text="@string/title_type_of_grading"
         android:textSize="20sp"/>
 
-    <Spinner
+    <Button
+        android:id="@+id/type_of_grading_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/completion_dropdown_menu">
-    </Spinner>
+        android:text="@string/title_numerical_grade"
+        android:textSize="20sp">
+    </Button>
 
     <ScrollView
         android:layout_width="match_parent"
