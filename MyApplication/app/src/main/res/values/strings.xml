@@ -22,4 +22,5 @@
     <string name="title_completion_button">Check completion</string>
     <string name="title_activity_question">QuestionActivity</string>
     <string name="title_activity_completion">CompletionActivity</string>
+    <string name="title_menu">Menu</string>
 </resources>
