@@ -1,0 +1,377 @@
+@CHARSET "ISO-8859-1";
+
+.showRoomName {
+	border-style: groove;
+	border-radius: 5px;
+	padding-bottom: 2px;
+	padding-top: 3px;
+	padding-right: 1px;
+	padding-left: 1px;
+}
+
+.block-center-30 {
+	margin: 0 auto !important; 
+	width: 30% !important; 
+	display: block !important;
+}
+
+.block-center-40 {
+	margin: 0 auto !important; 
+	width: 40% !important; 
+	display: block !important;
+}
+
+.block-center-50 {
+	margin: 0 auto !important; 
+	width: 50% !important; 
+	display: block !important;
+}
+
+.block-center-60 {
+	margin: 0 auto !important; 
+	width: 60% !important; 
+	display: block !important;
+}
+
+.block-center-70 {
+	margin: 0 auto !important; 
+	width: 70% !important; 
+	display: block !important;
+}
+
+.block-center-80 {
+	margin: 0 auto !important; 
+	width: 80% !important; 
+	display: block !important;
+}
+
+.ui-datepicker {
+    background: #fcfdfd;
+}
+
+.ui-datepicker-title {
+	background: #4a6d85;
+}
+
+.ui-datepicker-header {
+	background: #4a6d85;
+	border: 1px solid #4a6d85;
+}
+ 
+.category-grid-item, .back-btn, .category-container {
+    border: medium none;
+    border-radius: 2px;
+    color: #337ab7;
+    display: block;
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.15s ease 0s, color 0.15s ease 0s;
+}
+
+.category-grid-item {
+    background-color: #e5f3f7;
+    width: 100%;
+}
+
+.category-grid-item:hover, .category-grid-item:focus {
+    background-color: #00a1cb;
+    color: white;
+    cursor: pointer;
+}
+
+.category-container {
+	background-color: #E5E9EE;
+	position: relative;
+}
+
+.category-container.comment-container{
+	margin-top: 0;
+}
+
+.stat-comment {
+	width: 100%;
+	border: 0;
+	border-radius: 2px;
+	padding: 0px 2px;
+	color: #3D3D3D;
+	font-size: 14px;
+}
+
+.dropdown-container{
+	width: 100%;
+}
+
+.stat-pending {
+    color: #e56062;
+}
+
+.demo {
+	background:url(../images/demo.gif)
+	center;
+}
+
+p.warning, li.warning {
+	font-family: "arial", "calibri";
+	font-size: 1.75em;
+}
+
+p.landingPara {
+	font-family: "arial", "calibri";
+	font-size: 1.25em;
+}
+
+.login-form {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.login-form div {
+	padding-bottom: 10px;
+}
+
+.login-form label {
+	min-width: 100px;
+	display: inline-block;
+}
+
+.dashboard {
+	padding-bottom: 20px;
+	margin-left: 20px;
+}
+
+#header .logo img{
+	height: 120px;
+}
+
+#header .profile{
+	margin-top: 6em;
+	font-size: 1.3em;
+}
+
+#header{
+	height: 155px;
+}
+
+#header a.btn {
+	background: #fff;
+	border: 0.5px solid #bbb;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+	box-shadow: inset 0 0 1px 1px #f6f6f6;
+	font-family: "arial", "calibri";
+	font-size: 0.8em;
+	padding:0.5em;
+	text-align: center;
+	text-shadow: 0 1px 0 #fff;
+	text-decoration: none;
+	text-transform:uppercase;
+	display:inline-block;
+}
+
+h1, h2, h3, h4 {
+	color: #002554;;
+	font-weight: bold;
+	font-family: "arial", "calibri";
+}
+
+h2.main, h3.main, h4.main {
+	font-size: 2.75em;
+}
+
+.btn a {
+	padding-top: 200px;
+	padding-bottom: 20px;
+}
+
+.message-panel {
+	display: none;
+}
+
+td, tr, p, input, span{
+	font-family: "arial", "calibri";
+	font-size: 1.05em;
+}
+
+.landing-btn, .inc-btn{
+
+	text-align: center;
+	text-decoration: none;
+
+	transition: background-color 0.15s, color 0.15s;
+	border: none;
+	display:block;
+	border-radius: 2px;
+	padding: 20px;
+	margin: 10px 10px;
+	width: 100%;
+	font-family: "arial", "calibri";
+	font-size: 1.5em;
+}
+
+.incomplete-btn{
+	text-align: center;
+	text-decoration: none;
+
+	background-color: #C2C2D6;
+	border: none;
+	display:block;
+	line-height: 24px;
+	border-radius: 2px;
+	padding: 20px;
+	margin: 10px 10px;
+	width: 100%;
+	font-family: "arial", "calibri";
+	font-size: 1.25px;
+}
+/*
+Form setup
+*/
+
+.row-one-col {width: 49%;}
+
+.row-two-col {
+	 float:left;
+	 width: 49%;
+	 margin-right: 2%;		
+ }
+ 
+ .left {float:left;}
+
+.main-landing {
+	text-align: left;
+	margin-top:50px;
+	margin-bottom: 50px;
+}
+
+.submission-form {
+	/*border-style: solid;
+	border-width: 10px;
+	border-color: #808080;
+	padding: 10px;
+	background-color: #eaeaea;*/
+	margin: 50px 0px;
+	font-family: "arial", "calibri";
+	font-size: 1.3em;
+}
+
+.submission-form input[type='text'], input[type='email'] {
+	font-size: 1.3em;
+	/*background: #fff;*/
+	width: 100%;
+	height: 28px;
+	margin-bottom: 20px;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	 -moz-box-shadow: inset 0 3px 8px rgba(0,0,0,.4);
+	-webkit-box-shadow: inset 0 3px 8px rgba(0,0,0,.4);
+	box-shadow: inset 0 3px 8px rgba(0,0,0,.24);
+
+	border:none;
+ }
+ 
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+div.no-click {
+	margin-bottom: 20px;
+}
+
+div.awards_desc {
+	background-color: white;
+	margin-left: 0.5em;
+	width: 98%;
+}
+
+.member-group {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.buttons{
+	text-align: right;
+}
+
+.table {
+	font-size: 12pt;
+}
+
+.link-btn {
+	background:none!important;
+	border:none;
+	padding:0!important;
+	font-family: "arial", "calibri";
+	font-ize: 14px;
+
+	/*optional*/
+	color:#069;
+	cursor:pointer;
+}
+
+.link-btn:hover{
+	 text-decoration:underline;
+}
+
+/*
+Confirmation
+*/
+.correction-comment {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin: 10px 0 5px 0;
+}
+.active:hover{
+	cursor: pointer;
+}
+
+
+label { font-weight: normal; }
+
+.danger {
+	color: #a94442;
+}
+
+/*
+ Table sorter
+ */
+table.tablesorter {
+	margin: 10px 0pt 15px;
+	width: 100%;
+	text-align: left;
+	border-collapse: inherit;
+	border: 1px solid #CDCDCD;
+}
+
+table.tablesorter thead tr th.header {
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-image: url("../images/bg.gif");
+	cursor: pointer;
+}
+
+table.tablesorter thead tr th.header.no-bg{
+	background-image: none;
+}
+
+table.tablesorter thead tr th.headerSortDown {
+	background-image: url("../images/desc.gif");
+}
+
+table.tablesorter thead tr th.headerSortUp {
+	background-image: url("../images/asc.gif");
+}

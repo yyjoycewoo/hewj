@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('login', ['as' => 'login', "uses" => 'LoginController@showLogin']);
+Route::post('login', 'LoginController@postLogin');
+
+Route::get('logout', ['as' => 'logout', 'uses' => 'LoginController@logOff']);
+
+Route::group(['middleware' => 'loginCheck'], function() {
+	//View PHP Info
+	Route::get('/', function() {
+		return phpinfo();
+	});
 });
