@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 public class AttendanceActivity extends AppCompatActivity {
 
-    private TextView mStudentNamesTextView;
     private LinearLayout attendanceLinearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,4 +31,3 @@ public class AttendanceActivity extends AppCompatActivity {
 
     }
 }
-

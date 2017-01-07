@@ -21,6 +21,16 @@ final class FakeStudentNames {
             "David",
             "Hinson",
             "Eduoard",
+            "Will",
+            "Joyce",
+            "David",
+            "Hinson",
+            "Eduoard",
+            "Will",
+            "Joyce",
+            "David",
+            "Hinson",
+            "Eduoard",
             "Will"
         };
     }
