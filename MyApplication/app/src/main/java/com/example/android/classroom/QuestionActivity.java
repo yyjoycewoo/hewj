@@ -19,6 +19,7 @@ public class QuestionActivity extends AppCompatActivity {
     private Button mQuestion1Button;
     private Button mQuestion2Button;
     private Button mQuestion3Button;
+    private TextView resultsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class QuestionActivity extends AppCompatActivity {
         mQuestion1Button = (Button) findViewById(R.id.question1);
         mQuestion2Button = (Button) findViewById(R.id.question2);
         mQuestion3Button = (Button) findViewById(R.id.question3);
+        resultsTextView = (TextView) findViewById(R.id.results_text_view);
 
         mNewQuestionButton = (Button) findViewById(R.id.new_question);
         mNewQuestionButton.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +45,7 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mQuestion1Button.setBackgroundColor(getResources().getColor(R.color.emeraldGreen));
+                resultsTextView.setVisibility(View.VISIBLE);
             }
         });
 
@@ -50,6 +53,7 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mQuestion2Button.setBackgroundColor(getResources().getColor(R.color.emeraldGreen));
+                resultsTextView.setVisibility(View.VISIBLE);
             }
         });
 
@@ -57,6 +61,7 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mQuestion3Button.setBackgroundColor(getResources().getColor(R.color.emeraldGreen));
+                resultsTextView.setVisibility(View.VISIBLE);
             }
         });
 
