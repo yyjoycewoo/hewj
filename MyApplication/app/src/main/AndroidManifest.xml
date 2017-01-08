@@ -27,7 +27,7 @@
             android:label="@string/title_activity_attendance"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".InstructorMenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -50,7 +50,7 @@
             android:name=".NewQuestionActivity"
             android:label="@string/title_activity_new_question"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".StudentCourseListActivity" />
+        <activity android:name=".CourseListActivity" />
         <activity android:name=".CourseMenuActivity" />
         <activity android:name=".AnswerQuestionActivity"></activity>
     </application>

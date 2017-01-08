@@ -9,19 +9,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import static android.R.attr.type;
 
-public class MenuActivity extends AppCompatActivity {
+public class InstructorMenuActivity extends AppCompatActivity {
 
     private Button mAttendanceButton;
     private Button mQuestionButton;
     private Button mCompletionButton;
+    private TextView mMenuTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        mMenuTextView = (TextView) findViewById(R.id.menu_textview);
+        mMenuTextView.append(": " + getIntent().getStringExtra("courseCode"));
 
         mAttendanceButton = (Button) findViewById(R.id.attendance_button);
         mAttendanceButton.setOnClickListener(new View.OnClickListener() {
