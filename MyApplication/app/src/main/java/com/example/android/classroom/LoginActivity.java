@@ -13,7 +13,6 @@ import android.widget.EditText;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -106,10 +106,12 @@ public class LoginActivity extends AppCompatActivity {
             cancel = true;
         }
 
+        //goToCourseList("instructor");
+
         RestClientUsage rcu = new RestClientUsage();
         try {
             rcu.logIn();
-        } catch(JSONException jsone) {
+        } catch (JSONException jsone) {
             Log.e("LoginActivity", "JSONException");
         }
     }
@@ -135,23 +137,14 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     // If the response is JSONObject instead of expected JSONArray
-                    Log.d("FUCKING SUCCESS", response.toString());
-                    try {
-                        if (response.get("status").toString().equals("401")) {
-                            Log.d("FUCK OFF", "SERIOUSLY");
-                        } else {
-                            goToCourseList("instructor");
-                        }
-                    } catch(Exception e) {
-
-                    }
+                    Log.d("LoginActivity", response.toString());
+                    goToCourseList("instructor");
                 }
 
                 @Override
-                public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
-                    // Pull out the first event on the public timeline
-                    Log.d("FUCKING SUCCESS 2", timeline.toString());
-                    // Do something with the response
+                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                    Log.e("LoginActivity", errorResponse.toString());
+                    //Snackbar.make(LoginActivity.class, "Welcome to AndroidHive", Snackbar.LENGTH_LONG).show();
                 }
             });
         }
