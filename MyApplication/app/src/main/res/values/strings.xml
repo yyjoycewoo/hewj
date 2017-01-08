@@ -28,6 +28,17 @@
     <string name="title_completion_grade">switch to completion grading</string>
     <string name="title_grade_students">Grade students</string>
 
+    <!-- Activity Labels -->
+    <string name="answer_questions_activity_label">Answer Question</string>
+    <string name="attendance_activity_label">Attendance</string>
+    <string name="completion_activity_label">Check completion</string>
+    <string name="course_list_activity_label">Course List</string>
+    <string name="login_activity_label">Login</string>
+    <string name="new_question_activity_label">Ask new question</string>
+    <string name="question_activity_label">Ask a Question</string>
+    <string name="course_menu_activity_label">Menu</string>
+    <string name="instructor_menu_activity_label">Menu</string>
+
     <!-- AnswerQuestionActivity -->
     <string name="prompt_answer">Type your answer here</string>
     <string name="action_submit">Submit</string>

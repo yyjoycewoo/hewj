@@ -50,6 +50,10 @@ class Course extends Model {
     	$courses = $user->takes;
     	$rV = array();
     	
+    	if (!is_array($courses)) {
+    		$courses = array($courses);
+    	} 
+    	    
     	foreach ($courses as $course) {
     		$session = (string)$course->year . (string)$course->session;
     		$session_type = $course->meetingsection[0];
@@ -74,6 +78,10 @@ class Course extends Model {
     	$courses = $user->teaches;
     	$rV = array();
     	
+    	if (!is_array($courses)) {
+    		$courses = array($courses);
+    	}
+  	
     	foreach ($courses as $course) {
     		$session = (string)$course->year . (string)$course->session;
 			$session_type = $course->meetingsection[0];
@@ -97,6 +105,10 @@ class Course extends Model {
     	$user = Login::getUser();
     	$courses = $user->teaches;
     	$rV = array();
+    	
+    	if (!is_array($courses)) {
+    		$courses = array($courses);
+    	}
     	
     	foreach ($courses as $course) {
     		$session = (string)$course->year . (string)$course->session;
