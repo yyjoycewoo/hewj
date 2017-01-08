@@ -165,7 +165,7 @@ class Login extends Eloquent {
 		}
 
 		// Is he clean?
-		if ($profile && $profile->peopleID > 0) {
+		if ($profile && $profile->peopleID > 0) {		
 			self::setUserCredential($profile);
 			self::saveAllSessions();
 			

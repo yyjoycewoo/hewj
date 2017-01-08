@@ -16,6 +16,7 @@ Route::get('webLogin', ['as' => 'login', "uses" => 'LoginController@showLogin'])
 Route::post('webLogin', 'LoginController@postLogin');
 Route::get('webLogout', ['as' => 'logout', 'uses' => 'LoginController@logOff']);
 
+Route::get('login', ['as' => 'login', 'uses' => 'ApiController@doLogin']);
 Route::post('login', ['as' => 'login', 'uses' => 'ApiController@doLogin']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'ApiController@doLogoff']);
 
