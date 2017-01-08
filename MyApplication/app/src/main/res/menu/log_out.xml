@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/log_out_menu">
+    <item
+        android:icon="@drawable/common_full_open_on_phone"
+        android:id="@+id/log_out_item"
+        android:orderInCategory="100"
+        android:title="Log out"/>
+</menu>
