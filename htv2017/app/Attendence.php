@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Attendence extends Model
 {
@@ -28,6 +29,16 @@ class Attendence extends Model
      	return Attendence::where('course.id', '=', $course_id)
      			->leftJoin('course', 'attendence.course_id', '=', 'course.id')
      			->leftJoin('student', 'attendence.student_id', '=', 'student.id')
+     			->select('student.first_name', 'student.last_name', 'attendence.date')
+			    ->get()
+			    ->toArray();
+     }
+     
+     public static function getAttendenceByCourseAndDate($course_id, $date) {
+     	return Attendence::where('course.id', '=', $course_id)
+     			->leftJoin('course', 'attendence.course_id', '=', 'course.id')
+     			->leftJoin('student', 'attendence.student_id', '=', 'student.id')
+     			->where(DB::raw("DATE(attendence.date)"), '=', $date)
      			->select('student.first_name', 'student.last_name', 'attendence.date')
 			    ->get()
 			    ->toArray();

@@ -120,17 +120,20 @@ class Course extends Model {
     			->where("session_type", "=", $session_type)
     			->where("session_number", "=", $session_number)
     			->get()->toArray();
+  
+			if (count($check) != 1) {
+				continue;
+			}
     	
     		$new_array = array(
+    			"id" => $check[0]["id"],
     			"session" => $session,
     			"course_code" => $course->coursecode,
     			"session_type" => $session_type,
     			"session_number" => $session_number,
     		);
     		
-    		if (count($check) == 1) {
-    			array_push($rV, $new_array);
-    		}
+    		array_push($rV, $new_array);
     	}	
     	
     	return $rV;
@@ -148,6 +151,11 @@ class Course extends Model {
     	} else {
 	    	return -1;
     	}
+    }
+    
+    public static function getCourse($course_id) {
+    	$check = Course::where("id", "=", $course_id)->get()->toArray();
+    	return count($check) == 1 ? $check[0] : null;
     }
     
     public static function startAttendence($course_id) {
