@@ -1,40 +1,23 @@
 package com.example.android.classroom;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
-
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
-import static android.Manifest.permission.READ_CONTACTS;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A login screen that offers login via email/password.
@@ -48,7 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
-
 
     // UI references.
     private EditText mEmailView;
@@ -66,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 attemptLogin();
-                goToMenu();
             }
         });
 
@@ -128,6 +109,12 @@ public class LoginActivity extends AppCompatActivity {
             cancel = true;
         }
 
+        RestClientUsage rcu = new RestClientUsage();
+        try {
+            rcu.logIn();
+        } catch(JSONException jsone) {
+            Log.e("LoginActivity", "JSONException");
+        }
     }
 
     private boolean isEmailValid(String email) {
@@ -139,6 +126,38 @@ public class LoginActivity extends AppCompatActivity {
         //TODO: Replace this with your own logic
 
         return (password != null) && (password.length() > 4);
+    }
+
+    class RestClientUsage {
+        public void logIn() throws JSONException {
+            RequestParams params = new RequestParams();
+            params.add("username", mEmailView.getText().toString());
+            params.add("password", mPasswordView.getText().toString());
+
+            RestClient.get("login", params, new JsonHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    // If the response is JSONObject instead of expected JSONArray
+                    Log.d("FUCKING SUCCESS", response.toString());
+                    try {
+                        if (response.get("status").toString().equals("401")) {
+                            Log.d("FUCK OFF", "SERIOUSLY");
+                        } else {
+                            goToMenu();
+                        }
+                    } catch(Exception e) {
+
+                    }
+                }
+
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
+                    // Pull out the first event on the public timeline
+                    Log.d("FUCKING SUCCESS 2", timeline.toString());
+                    // Do something with the response
+                }
+            });
+        }
     }
 
     /**
