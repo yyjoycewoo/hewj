@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             params.add("username", mUTORidView.getText().toString());
             params.add("password", mPasswordView.getText().toString());
 
+
             RestClient.get("login", params, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

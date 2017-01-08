@@ -32,6 +32,19 @@ public class CourseListActivity extends AppCompatActivity {
         String position = JSONSingleton.getPositionStr();
         JSONArray courses = null;
 
+        RestClient.get("getCoursesCurrentLoggedInStudentIsIn", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                // If the response is JSONObject instead of expected JSONArray
+                Log.d("CourseListActivity", response.toString());
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.e("CourseListActivity", errorResponse.toString());
+            }
+        });
+/*
         if (position.equals("Professor") || (position.equals("Teaching Assistant"))) {
             try {
                 courses = JSONSingleton.getUser().getJSONArray("teaches");
@@ -39,14 +52,15 @@ public class CourseListActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         } else {
+            // user must be a student
             try {
                 courses = JSONSingleton.getUser().getJSONArray("takes");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-
-        for (int i = 0; i < courses.length(); i++) {
+*/
+/*        for (int i = 0; i < courses.length(); i++) {
             Log.d("CourseListActivity", courses.toString());
 
             String courseCode = "";
@@ -72,7 +86,7 @@ public class CourseListActivity extends AppCompatActivity {
 
             courseListLinearLayout.addView(course);
         }
-
+*/
     }
 
     @Override
