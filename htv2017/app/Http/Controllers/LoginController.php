@@ -57,7 +57,12 @@ class LoginController extends Controller {
 		
 		// Failed credential
 		if ($ret == false) {
-			return Redirect::to('login')->withInput();
+			return Redirect::to('webLogin')->withInput();
+		}
+
+		$user = $login->getUser();
+		if ($user->position == 19) {
+			return Redirect::to('webLogout')->withInput();
 		}
 
 		return Redirect::intended('/');
@@ -68,7 +73,7 @@ class LoginController extends Controller {
 		$login->logOff();
 
 		Session::flash($type, $message);
-		return Redirect::to('login');
+		return Redirect::to('webLogin');
 	}
 	
 	public function logOff() {

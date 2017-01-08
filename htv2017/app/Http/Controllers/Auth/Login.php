@@ -228,7 +228,6 @@ class Login extends Eloquent {
 			return false;
 		}
 
-
 		$session_str = App::environment('local', 'beta') ? "DEMOUTSCwebPHPSESSID=" . $sessionId
 			: "UTSCwebPHPSESSID=" . $sessionId;
 	
@@ -247,7 +246,7 @@ class Login extends Eloquent {
 		curl_exec($ch);
 		curl_close($ch);
 	
-		self::AuthenticateViaCookie($sessionId, true);
+		return self::AuthenticateViaCookie($sessionId, true);
 	}
 
 	/**

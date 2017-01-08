@@ -16,7 +16,7 @@ class loginMiddleWare {
 			}
 				
 			Session::flash("danger", "Please log in.");
-			return Redirect::to("login");
+			return Redirect::to("webLogin");
 		}
 
 		return $next($request);

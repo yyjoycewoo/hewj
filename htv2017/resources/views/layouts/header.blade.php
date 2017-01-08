@@ -21,19 +21,10 @@
 
 		//Menu Bar
 		$appURL = Config::get('app.url');
-		$statsTrackingURL = Options::getStatsTrackingURL();
 
 		//tabname => [displayname, URL, toDisplay]
 		$tabList = array(
 			"landing" => ["Home", $appURL, true],
-			"labs" => ["Labs", $appURL . "/labs", $permission['lab_access']],
-			"stats" => ["Stats", $statsTrackingURL, true],
-			"infractions" => ["Infractions", $appURL . "/infractions", $permission['infractions_access']],
-			"info" => ["Info", $appURL . "/info", $permission['info_access']],
-			"ldap" => ["LDAP Lookup", $appURL . "/ldap", $permission['ldap_access']],
-			"printing" => ["Printing Logs", $appURL . "/printing", $permission['printing_access']],
-			"calendar" => ["Calendar", $appURL . "/calendar", $permission['calendar_access']],
-			"administration" => ["Administration", $appURL . "/administration", $permission['administration_access']],
 		);
 
 		$currentTab = Route::getCurrentRoute()->getName();
@@ -41,7 +32,7 @@
 		$name = $user->givennames . " " . $user->familyname;		
 		$position = $user->permission["name"];
 
-		$logoutUrl = Config::get('app.url') . "/logout";
+		$logoutUrl = Config::get('app.url') . "/webLogout";
 		$logoutText = "Log Out";
 	} else {
 		$utscHeader = str_replace('<div class="profile">', '<div hidden class="profile">', $utscHeader);
@@ -50,6 +41,8 @@
 	if (App::environment('local', 'beta')) {
 		$utscHeader .= "<script>$('body').addClass('demo')</script>";
 	}
+
+	$utscHeader .= "<script>$('.logo').hide()</script>";
 
 	$utscHeader = str_replace("[--NAME--]", $name, $utscHeader);
 	$utscHeader = str_replace("[--POSITION--]", $position, $utscHeader);
