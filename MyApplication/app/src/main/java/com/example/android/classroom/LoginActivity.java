@@ -70,9 +70,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        Button mStudentLogin = (Button) findViewById(R.id.student_login_button);
+        mStudentLogin.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToCourseList();
+            }
+        });
+
+
     }
 
-    public void goToMenu() {
+    private void goToCourseList() {
+        Intent intent = new Intent(this, StudentCourseListActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToMenu() {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
