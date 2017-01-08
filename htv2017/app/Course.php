@@ -52,8 +52,8 @@ class Course extends Model {
     	
     	if (!is_array($courses)) {
     		$courses = array($courses);
-    	}
-    	
+    	} 
+    	    
     	foreach ($courses as $course) {
     		$session = (string)$course->year . (string)$course->session;
     		$session_type = $course->meetingsection[0];
