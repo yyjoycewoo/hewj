@@ -55,22 +55,19 @@ public class LoginActivity extends AppCompatActivity {
         mStudentLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToCourseList();
+                goToCourseList("student");
             }
         });
 
 
     }
 
-    private void goToCourseList() {
-        Intent intent = new Intent(this, StudentCourseListActivity.class);
+    private void goToCourseList(String status) {
+        Intent intent = new Intent(this, CourseListActivity.class);
+        intent.putExtra("status", status);
         startActivity(intent);
     }
 
-    private void goToMenu() {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
-    }
 
     /**
      * Attempts to sign in or register the account specified by the login form.
@@ -143,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.get("status").toString().equals("401")) {
                             Log.d("FUCK OFF", "SERIOUSLY");
                         } else {
-                            goToMenu();
+                            goToCourseList("instructor");
                         }
                     } catch(Exception e) {
 

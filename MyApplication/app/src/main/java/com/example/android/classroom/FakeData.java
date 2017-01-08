@@ -5,6 +5,10 @@ package com.example.android.classroom;
  */
 
 final class FakeData {
+    public static String getQuestion() {
+        return "Mirror mirror on the wall, who is the fairest one of all?";
+    }
+
     public static String[] getCourses() {
         return new String[] {
                 "CSC207",
