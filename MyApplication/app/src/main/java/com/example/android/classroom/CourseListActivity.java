@@ -7,11 +7,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
@@ -25,6 +29,44 @@ public class CourseListActivity extends AppCompatActivity {
         LinearLayout courseListLinearLayout = (LinearLayout)
                 findViewById(R.id.activity_student_course_list);
         //String[] courses = FakeData.getCourses();
+
+        String position = JSONSingleton.getPositionStr();
+        if (position.equals("Professor") || (position.equals("Teaching Assistant"))) {
+
+            JSONArray courses = null;
+            try {
+                courses = JSONSingleton.getUser().getJSONArray("teaches");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            for (int i = 0; i < courses.length(); i++) {
+                Log.d("CourseListActivity", courses.toString());
+
+                String courseCode = "";
+                try {
+                    courseCode = courses.getJSONObject(i).get("coursecode").toString();
+                    Log.d("CourseListActivity", courseCode);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Button course = new Button(this);
+                course.setText(courseCode);
+
+                final String finalCourseCode = courseCode;
+                course.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        goTo(finalCourseCode);
+                    }
+                });
+                course.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_textsize));
+
+                courseListLinearLayout.addView(course);
+            }
+        } else {
+            //TODO: parse student's courses
+        }
     }
 
     @Override
