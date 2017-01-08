@@ -42,16 +42,6 @@ public class LoginActivity extends AppCompatActivity {
                 attemptLogin();
             }
         });
-
-        Button mStudentLogin = (Button) findViewById(R.id.student_login_button);
-        mStudentLogin.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToCourseList("student");
-            }
-        });
-
-
     }
 
     private void goToCourseList(String status) {
@@ -59,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra("status", status);
         startActivity(intent);
     }
-
 
     /**
      * Attempts to sign in or register the account specified by the login form.
@@ -94,11 +83,13 @@ public class LoginActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        RestClientUsage rcu = new RestClientUsage();
-        try {
-            rcu.logIn();
-        } catch (JSONException jsone) {
-            Log.e("LoginActivity", "JSONException");
+        if (!cancel) {
+            RestClientUsage rcu = new RestClientUsage();
+            try {
+                rcu.logIn();
+            } catch (JSONException jsone) {
+                Log.e("LoginActivity", "JSONException");
+            }
         }
     }
 
@@ -121,7 +112,6 @@ public class LoginActivity extends AppCompatActivity {
                     String position = "";
                     try {
                         position = response.getJSONObject("user").get("positionStr").toString();
-                        Log.d("LoginActivity", position);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
