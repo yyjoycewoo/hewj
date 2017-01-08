@@ -5,7 +5,11 @@ package com.example.android.classroom;
  */
 
 final class FakeData {
-    public static String getQuestion() {
+    public static String getMCQuestion() {
+        return "Which of the following?";
+    }
+
+    public static String getShortAnswerQuestion() {
         return "Mirror mirror on the wall, who is the fairest one of all?";
     }
 

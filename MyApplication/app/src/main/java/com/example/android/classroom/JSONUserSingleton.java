@@ -7,17 +7,17 @@ import org.json.JSONObject;
  * Created by williamkim on 2017-01-08.
  */
 
-public class JSONSingleton {
-    private static JSONSingleton mInstance = null;
+public class JSONUserSingleton {
+    private static JSONUserSingleton mInstance = null;
 
     public JSONObject mJSONObject;
 
-    protected JSONSingleton() {
+    protected JSONUserSingleton() {
     }
 
-    public static synchronized JSONSingleton getInstance() {
+    public static synchronized JSONUserSingleton getInstance() {
         if (null == mInstance)
-            mInstance = new JSONSingleton();
+            mInstance = new JSONUserSingleton();
 
         return mInstance;
     }

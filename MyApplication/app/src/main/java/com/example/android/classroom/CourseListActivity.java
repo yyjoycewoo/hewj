@@ -21,6 +21,8 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
 public class CourseListActivity extends AppCompatActivity {
+    String COURSE_ID = "10";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,38 +31,24 @@ public class CourseListActivity extends AppCompatActivity {
         LinearLayout courseListLinearLayout = (LinearLayout)
                 findViewById(R.id.activity_student_course_list);
 
-        String position = JSONSingleton.getPositionStr();
+        String position = JSONUserSingleton.getPositionStr();
         JSONArray courses = null;
 
-        RestClient.get("getCoursesCurrentLoggedInStudentIsIn", null, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                // If the response is JSONObject instead of expected JSONArray
-                Log.d("CourseListActivity", response.toString());
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.e("CourseListActivity", errorResponse.toString());
-            }
-        });
-/*
         if (position.equals("Professor") || (position.equals("Teaching Assistant"))) {
             try {
-                courses = JSONSingleton.getUser().getJSONArray("teaches");
+                courses = JSONUserSingleton.getUser().getJSONArray("teaches");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         } else {
-            // user must be a student
             try {
-                courses = JSONSingleton.getUser().getJSONArray("takes");
+                courses = JSONUserSingleton.getUser().getJSONArray("takes");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-*/
-/*        for (int i = 0; i < courses.length(); i++) {
+
+        for (int i = 0; i < courses.length(); i++) {
             Log.d("CourseListActivity", courses.toString());
 
             String courseCode = "";
@@ -76,17 +64,18 @@ public class CourseListActivity extends AppCompatActivity {
             course.setText(courseCode);
 
             final String finalCourseCode = courseCode;
+            final String courseId = COURSE_ID;
             course.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    goTo(finalCourseCode);
+                    goTo(finalCourseCode, courseId);
                 }
             });
             course.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_textsize));
 
             courseListLinearLayout.addView(course);
         }
-*/
+
     }
 
     @Override
@@ -122,14 +111,16 @@ public class CourseListActivity extends AppCompatActivity {
         return true;
     }
 
-    private void goTo(String courseCode) {
+    private void goTo(String courseCode, String courseId) {
         Intent intent = null;
         if (getIntent().getStringExtra("status").equals("instructor")) {
             intent = new Intent(this, InstructorMenuActivity.class);
             intent.putExtra("courseCode", courseCode);
+            intent.putExtra("courseId", courseId);
         } else if (getIntent().getStringExtra("status").equals("student")) {
             intent = new Intent(this, CourseMenuActivity.class);
             intent.putExtra("courseCode", courseCode);
+            intent.putExtra("courseId", courseId);
         }
         startActivity(intent);
     }

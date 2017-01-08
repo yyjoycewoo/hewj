@@ -13,9 +13,9 @@ import android.widget.EditText;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -99,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     class RestClientUsage {
+
         public void logIn() throws JSONException {
             RequestParams params = new RequestParams();
             params.add("username", mUTORidView.getText().toString());
@@ -110,8 +111,8 @@ public class LoginActivity extends AppCompatActivity {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     // If the response is JSONObject instead of expected JSONArray
                     Log.d("LoginActivity", response.toString());
-                    JSONSingleton.getInstance().mJSONObject = response;
-                    String position = JSONSingleton.getPositionStr();
+                    JSONUserSingleton.getInstance().mJSONObject = response;
+                    String position = JSONUserSingleton.getPositionStr();
                     if (position.equals("Professor") || (position.equals("Teaching Assistant"))) {
                         goToCourseList("instructor");
                     } else {

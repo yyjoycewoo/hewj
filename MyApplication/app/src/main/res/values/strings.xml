@@ -42,6 +42,9 @@
     <!-- AnswerQuestionActivity -->
     <string name="prompt_answer">Type your answer here</string>
     <string name="action_submit">Submit</string>
+    <string name="answer1">Pizza Mario Man</string>
+    <string name="answer2">gcc -g</string>
+    <string name="answer3">42</string>
 
     <!-- CourseMenuActivity -->
     <string name="title_im_here">I\'m here!</string>
@@ -55,7 +58,8 @@
 
     <!-- NewQuestionActivity -->
     <string name="new_question_prompt">Question:</string>
-    <string name="new_question_hint">Enter a question asshole.</string>
+    <string name="new_question_hint">Enter a question.</string>
     <string name="new_question_answer_type_prompt">Answer type:</string>
-    <string name="new_question_post_button_text">GO GO GO</string>
+    <string name="new_question_post_button_text">Ask question!</string>
+
 </resources>

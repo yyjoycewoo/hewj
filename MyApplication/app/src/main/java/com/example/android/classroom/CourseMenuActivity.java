@@ -1,7 +1,6 @@
 package com.example.android.classroom;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,7 +43,7 @@ public class CourseMenuActivity extends AppCompatActivity {
                 RequestParams params = new RequestParams();
                 params.add("course_id", courseCode);
                 try {
-                    params.add("student_id", JSONSingleton.getUser().get("user_id").toString());
+                    params.add("student_id", JSONUserSingleton.getUser().get("user_id").toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
