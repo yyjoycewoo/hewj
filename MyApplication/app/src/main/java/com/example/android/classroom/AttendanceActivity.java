@@ -1,6 +1,7 @@
 package com.example.android.classroom;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ public class AttendanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
+
         attendanceLinearLayout = (LinearLayout) findViewById(R.id.attendance_list);
 
         String[] studentNames = FakeData.getStudentNames();
@@ -30,4 +32,6 @@ public class AttendanceActivity extends AppCompatActivity {
         attendanceLinearLayout.getChildAt(2).setBackgroundColor(0xFF00FF00);
 
     }
+
+
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -26,7 +27,7 @@ public class InstructorMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         mMenuTextView = (TextView) findViewById(R.id.menu_textview);
-        mMenuTextView.append(": " + getIntent().getStringExtra("courseCode"));
+        mMenuTextView.setText(getIntent().getStringExtra("courseCode"));
 
         mAttendanceButton = (Button) findViewById(R.id.attendance_button);
         mAttendanceButton.setOnClickListener(new View.OnClickListener() {
