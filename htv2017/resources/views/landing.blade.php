@@ -27,16 +27,29 @@
 							<td>{{ $course["is_active"] == 1 ? "Yes" : "No" }}</td>
 							
 							@if ($course["is_active"] == 0)
-								<td><a onclick="setCourseActive('{{ $course["session"] }}', '{{ $course["course_code"] }}', '{{ $course["session_type"] }}', '{{ $course["session_number"] }}')">Make Active</a></td>
+								<td><a class="btn btn-primary btn btn-xs" onclick="setCourseActive('{{ $course["session"] }}', '{{ $course["course_code"] }}', '{{ $course["session_type"] }}', '{{ $course["session_number"] }}')">Make Active</a></td>
 							@else
-								<td></td>
+								@foreach ($activatedCourses as $aCourse)
+									<?php
+										if (strcmp($aCourse["course_code"], $course["course_code"]) == 0 &&
+											strcmp($aCourse["session"], $course["session"]) == 0 &&
+											strcmp($aCourse["session_type"], $course["session_type"]) == 0 &&
+											strcmp($aCourse["session_number"], $course["session_number"]) == 0) {
+												$courseId = $aCourse["id"];
+												break;
+											}
+												
+									?>
+								@endforeach
+								<td>	
+									<a href="courseAttendence?courseId={{ $courseId }}" class="btn-primary btn btn-xs">Course Attendence</a>
+									<a href="courseQuestions?courseId={{ $courseId }}" class="btn-primary btn btn-xs">Questions</a>
+								</td>
 							@endif
 						</tr>
 					@endforeach
 				</tbody>
-
 			</table>
-
 		</div>
 	</div>
 @endsection
@@ -53,8 +66,11 @@
 			
 			param = $.param(param);
 		
-			$.get(BASE_URL + "addCourse?" + param);
-			location.reload();
+			$.get(BASE_URL + "addCourse?" + param, function() {
+				location.reload();
+			}).fail(function() {
+				alert("Internal Server Error, Please try again later.");
+			});
 		}
 	</script>
 @endsection

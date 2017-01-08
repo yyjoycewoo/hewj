@@ -1,16 +1,24 @@
 package com.example.android.classroom;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 public class CourseListActivity extends AppCompatActivity {
     @Override
@@ -65,6 +73,38 @@ public class CourseListActivity extends AppCompatActivity {
             courseListLinearLayout.addView(course);
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.log_out, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.log_out_item:
+                Toast.makeText(this, "Log out selected.", Toast.LENGTH_SHORT).show();
+                RestClient.get("logout", null, new JsonHttpResponseHandler() {
+                            @Override
+                            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                                // If the response is JSONObject instead of expected JSONArray
+                                Log.d("LoginActivity", response.toString());
+                            }
+
+                            @Override
+                            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                                Log.e("LoginActivity", errorResponse.toString());
+                            }
+                        }
+                );
+                break;
+        }
+
+        return true;
     }
 
     private void goTo(String courseCode) {
