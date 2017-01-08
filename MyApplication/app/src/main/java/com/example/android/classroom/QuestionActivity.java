@@ -38,7 +38,7 @@ public class QuestionActivity extends AppCompatActivity {
         for (i = 0; i < mQuestions.size(); i++) {
             TextView student = new TextView(this);
             student.setText(String.format(questionText, i + 1, mQuestions.get(i)));
-            student.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_student_name));
+            student.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_textsize));
             student.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
