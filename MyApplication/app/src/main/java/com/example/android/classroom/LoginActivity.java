@@ -118,7 +118,18 @@ public class LoginActivity extends AppCompatActivity {
                     // If the response is JSONObject instead of expected JSONArray
                     Log.d("LoginActivity", response.toString());
                     JSONSingleton.getInstance().mJSONObject = response;
-                    goToCourseList("instructor");
+                    String position = "";
+                    try {
+                        position = response.getJSONObject("user").get("positionStr").toString();
+                        Log.d("LoginActivity", position);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if (position.equals("Professor") || (position.equals("Teaching Assistant"))) {
+                        goToCourseList("instructor");
+                    } else {
+                        goToCourseList("student");
+                    }
                 }
 
                 @Override
