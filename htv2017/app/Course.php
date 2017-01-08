@@ -67,6 +67,10 @@ class Course extends Model {
     			"is_active" => Course::isCourseActive($session, $course->coursecode, $session_type, $session_number),
     		);
     		
+    		if ($new_array["is_active"]) {
+    			$new_array["id"] = Course::getId($session, $course->coursecode, $session_type, $session_number);
+    		}
+    		
     		array_push($rV, $new_array);
     	}	
     	
@@ -94,6 +98,10 @@ class Course extends Model {
     			"session_number" => $session_number,
     			"is_active" => Course::isCourseActive($session, $course->coursecode, $session_type, $session_number),
     		);
+    		
+    		if ($new_array["is_active"]) {
+    			$new_array["id"] = Course::getId($session, $course->coursecode, $session_type, $session_number);
+    		}
     		
     		array_push($rV, $new_array);
     	}	
@@ -140,7 +148,7 @@ class Course extends Model {
     }
     
     public static function getId($session, $course_code, $session_type, $session_number) {
-    	$check = Course::where("course_code", "=", $course->coursecode)
+    	$check = Course::where("course_code", "=", $course_code)
     			->where("session", "=", $session)
     			->where("session_type", "=", $session_type)
     			->where("session_number", "=", $session_number)
