@@ -24,6 +24,7 @@ Route::group(['middleware' => 'loginCheck'], function() {
 	//View PHP Info
 	Route::get('/', ['as' => 'landing', 'uses' => 'LandingController@showLandingPage']);
 	Route::get('/courseAttendence', ['as' => 'courseAttendence', 'uses' => 'LandingController@courseAttendence']);
+	Route::get('/courseQuestions', ['as' => 'courseQuestions', 'uses' => 'LandingController@courseQuestions']);
 	
 	Route::get('addCourse', 'ApiController@addCourse');
 	Route::get('isCourseActive', 'ApiController@isCourseActive');
