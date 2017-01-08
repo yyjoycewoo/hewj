@@ -51,6 +51,9 @@
             android:label="@string/title_activity_new_question"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <activity android:name=".StudentCourseListActivity" />
+        <activity android:name=".CourseMenuActivity"></activity>
     </application>
 
 </manifest>

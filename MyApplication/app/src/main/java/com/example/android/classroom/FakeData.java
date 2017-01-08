@@ -4,7 +4,17 @@ package com.example.android.classroom;
  * Created by JoyceWoo on 2017-01-07.
  */
 
-final class FakeStudentNames {
+final class FakeData {
+    public static String[] getCourses() {
+        return new String[] {
+                "CSC207",
+                "CSC258",
+                "CSC209",
+                "MAT223",
+                "STA247"
+        };
+    }
+
     public static String[] getStudentNames() {
         return new String[] {
             "Joyce",
