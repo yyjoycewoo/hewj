@@ -31,7 +31,7 @@
 		var TOKEN = "{{ csrf_token() }}";
 	</script>
 
-	<title>Atlas</title>
+	<title>HTV2017</title>
 </head>
 <body style="max-width: 95%; overflow-x: hidden;" class="hold-transition skin-blue sidebar-mini">
 	@yield("header")
