@@ -14,7 +14,7 @@ public class AttendanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_attendance);
         attendanceLinearLayout = (LinearLayout) findViewById(R.id.attendance_list);
 
-        String[] studentNames = FakeStudentNames.getStudentNames();
+        String[] studentNames = FakeData.getStudentNames();
 
         for (String name : studentNames) {
             TextView student = new TextView(this);

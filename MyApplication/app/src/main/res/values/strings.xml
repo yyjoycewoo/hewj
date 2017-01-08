@@ -28,6 +28,11 @@
     <string name="title_completion_grade">switch to completion grading</string>
     <string name="title_grade_students">Grade students</string>
 
+    <!-- CourseMenuActivity -->
+    <string name="title_im_here">I\'m here!</string>
+    <string name="title_ans_question">Answer question</string>
+    <string name="title_wtf">WTF?!</string>
+
     <!-- QuestionActivity -->
     <string name="question_list_title_text">Select it</string>
     <string name="new_question_button_text">New Question</string>

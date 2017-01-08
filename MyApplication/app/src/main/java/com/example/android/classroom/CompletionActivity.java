@@ -3,8 +3,6 @@ package com.example.android.classroom;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,7 +14,7 @@ public class CompletionActivity extends AppCompatActivity {
     private LinearLayout mCompletionLinearLayout;
     private Button mTypeOfGradingButton;
 
-    String[] studentNames = FakeStudentNames.getStudentNames();
+    String[] studentNames = FakeData.getStudentNames();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
