@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class StudentCourseListActivity extends AppCompatActivity {
+public class CourseListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class StudentCourseListActivity extends AppCompatActivity {
             course.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    goToCourseMenu(courseCode);
+                        goTo(courseCode);
                 }
             });
             course.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_textsize));
@@ -35,9 +35,16 @@ public class StudentCourseListActivity extends AppCompatActivity {
         }
     }
 
-    private void goToCourseMenu(String  courseCode) {
-        Intent intent = new Intent(this, CourseMenuActivity.class);
-        intent.putExtra("courseCode", courseCode);
+    private void goTo(String  courseCode) {
+        Intent intent = null;
+        if (getIntent().getStringExtra("status").equals("instructor")) {
+            intent = new Intent(this, InstructorMenuActivity.class);
+            intent.putExtra("courseCode", courseCode);
+        } else {
+            //status is student
+            intent = new Intent(this, CourseMenuActivity.class);
+            intent.putExtra("courseCode", courseCode);
+        }
         startActivity(intent);
     }
 }
