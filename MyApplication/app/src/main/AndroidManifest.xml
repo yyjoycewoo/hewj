@@ -13,6 +13,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name">
@@ -24,35 +32,28 @@
         </activity>
         <activity
             android:name=".AttendanceActivity"
-            android:label="@string/title_activity_attendance"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/attendance_activity_label"/>
         <activity
             android:name=".InstructorMenuActivity"
-            android:label="@string/title_activity_menu"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/instructor_menu_activity_label"/>
         <activity
             android:name=".QuestionActivity"
-            android:label="@string/title_activity_question"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/question_activity_label"/>
         <activity
             android:name=".CompletionActivity"
-            android:label="@string/title_activity_completion"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <!--
- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
-        -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
+            android:label="@string/completion_activity_label"/>
         <activity
             android:name=".NewQuestionActivity"
-            android:label="@string/title_activity_new_question"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".CourseListActivity" />
-        <activity android:name=".CourseMenuActivity" />
-        <activity android:name=".AnswerQuestionActivity"></activity>
+            android:label="@string/new_question_activity_label"/>
+        <activity
+            android:name=".CourseListActivity"
+            android:label="@string/course_list_activity_label"/>
+        <activity
+            android:name=".CourseMenuActivity"
+            android:label="@string/course_menu_activity_label"/>
+        <activity
+            android:name=".AnswerQuestionActivity"
+            android:label="@string/answer_questions_activity_label"/>
     </application>
 
 </manifest>
