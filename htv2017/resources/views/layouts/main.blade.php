@@ -22,9 +22,6 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css', Config::get('app.secure')) }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css', Config::get('app.secure')) }}">
 	<link rel="stylesheet" type="text/css" href="https://www.utsc.utoronto.ca/_includes/application/css/hf.css">
-	
-	<!-- Application Javascript -->
-	<script src="js/atlas.js"></script>
 
 	<script type="text/javascript">
 		var BASE_URL = "{{ Config::get('app.url')}}/";
