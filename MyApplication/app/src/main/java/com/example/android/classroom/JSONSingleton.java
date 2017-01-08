@@ -1,5 +1,6 @@
 package com.example.android.classroom;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -20,4 +21,23 @@ public class JSONSingleton {
 
         return mInstance;
     }
+
+    public static String getPositionStr() {
+        try {
+            return mInstance.mJSONObject.getJSONObject("user").get("positionStr").toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static JSONObject getUser() {
+        try {
+            return mInstance.mJSONObject.getJSONObject("user");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

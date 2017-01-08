@@ -15,6 +15,7 @@ import com.loopj.android.http.RequestParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -109,12 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                     // If the response is JSONObject instead of expected JSONArray
                     Log.d("LoginActivity", response.toString());
                     JSONSingleton.getInstance().mJSONObject = response;
-                    String position = "";
-                    try {
-                        position = response.getJSONObject("user").get("positionStr").toString();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                    String position = JSONSingleton.getPositionStr();
                     if (position.equals("Professor") || (position.equals("Teaching Assistant"))) {
                         goToCourseList("instructor");
                     } else {
