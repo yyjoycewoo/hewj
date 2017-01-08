@@ -16,6 +16,14 @@ use App\Mark;
 
 class ApiController extends Controller
 {
+	public function ApiController() {
+		header('Access-Control-Allow-Origin: *');
+		header('Access-Control-Allow-Methods: GET, POST');
+		header("Access-Control-Allow-Headers: X-Requested-With");
+		
+		super();
+	}
+
 	//Login
 	public function doLogin() {
 		$utorId = Input::get('username');
