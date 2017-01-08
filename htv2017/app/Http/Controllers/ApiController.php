@@ -37,7 +37,8 @@ class ApiController extends Controller
 			return response()->json(["message" => "Wrong username or password"], 401);
 		}
 		
-		return response()->json(["message" => "OK"], 200);
+		$user = $login->getUser();
+		return response()->json(["message" => "OK", "user" => $user], 200);
 	}
 	
 	//Logout
