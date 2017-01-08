@@ -86,7 +86,8 @@ public class CourseListActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                 // If the response is JSONObject instead of expected JSONArray
-                                Log.d("LoginActivity", response.toString());
+                                Log.d("CourseListActivity", response.toString());
+                                goBackToLogin();
                             }
 
                             @Override
@@ -111,5 +112,9 @@ public class CourseListActivity extends AppCompatActivity {
             intent.putExtra("courseCode", courseCode);
         }
         startActivity(intent);
+    }
+
+    private void goBackToLogin() {
+        startActivity(new Intent(this, LoginActivity.class));
     }
 }
