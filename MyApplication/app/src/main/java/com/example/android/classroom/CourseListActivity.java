@@ -44,6 +44,8 @@ public class CourseListActivity extends AppCompatActivity {
             String courseCode = "";
             try {
                 courseCode = courses.getJSONObject(i).get("coursecode").toString();
+                courseCode += " - ";
+                courseCode += courses.getJSONObject(i).get("meetingsection").toString();
                 Log.d("CourseListActivity", courseCode);
             } catch (JSONException e) {
                 e.printStackTrace();
