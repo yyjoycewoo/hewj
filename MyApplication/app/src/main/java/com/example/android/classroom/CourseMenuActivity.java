@@ -43,8 +43,15 @@ public class CourseMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RequestParams params = new RequestParams();
-                params.add("course_id", "");
-                params.add("student_id", "");
+                params.add("course_id", "10");
+
+                String student_id = null;
+                try {
+                    student_id = JSONSingleton.getInstance().mJSONObject.getJSONObject("user").get("user_id").toString();
+                } catch (Exception e) {
+                    Log.d("CourseMenuActivity", e.toString());
+                }
+                params.add("student_id", student_id);
 
                 RestClient.get("setAttendence", null, new JsonHttpResponseHandler() {
                     @Override
