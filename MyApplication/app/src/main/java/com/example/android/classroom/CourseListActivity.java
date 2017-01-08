@@ -28,45 +28,51 @@ public class CourseListActivity extends AppCompatActivity {
 
         LinearLayout courseListLinearLayout = (LinearLayout)
                 findViewById(R.id.activity_student_course_list);
-        //String[] courses = FakeData.getCourses();
 
         String position = JSONSingleton.getPositionStr();
-        if (position.equals("Professor") || (position.equals("Teaching Assistant"))) {
+        JSONArray courses = null;
 
-            JSONArray courses = null;
+        if (position.equals("Professor") || (position.equals("Teaching Assistant"))) {
             try {
                 courses = JSONSingleton.getUser().getJSONArray("teaches");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-            for (int i = 0; i < courses.length(); i++) {
-                Log.d("CourseListActivity", courses.toString());
-
-                String courseCode = "";
-                try {
-                    courseCode = courses.getJSONObject(i).get("coursecode").toString();
-                    Log.d("CourseListActivity", courseCode);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                Button course = new Button(this);
-                course.setText(courseCode);
-
-                final String finalCourseCode = courseCode;
-                course.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        goTo(finalCourseCode);
-                    }
-                });
-                course.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_textsize));
-
-                courseListLinearLayout.addView(course);
-            }
         } else {
-            //TODO: parse student's courses
+            try {
+                courses = JSONSingleton.getUser().getJSONArray("takes");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
+
+        for (int i = 0; i < courses.length(); i++) {
+            Log.d("CourseListActivity", courses.toString());
+
+            String courseCode = "";
+            try {
+                courseCode = courses.getJSONObject(i).get("coursecode").toString();
+                courseCode += " - ";
+                courseCode += courses.getJSONObject(i).get("meetingsection").toString();
+                Log.d("CourseListActivity", courseCode);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Button course = new Button(this);
+            course.setText(courseCode);
+
+            final String finalCourseCode = courseCode;
+            course.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    goTo(finalCourseCode);
+                }
+            });
+            course.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_textsize));
+
+            courseListLinearLayout.addView(course);
+        }
+
     }
 
     @Override

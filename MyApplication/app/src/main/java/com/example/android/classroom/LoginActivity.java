@@ -114,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (position.equals("Professor") || (position.equals("Teaching Assistant"))) {
                         goToCourseList("instructor");
                     } else {
+                        // user must be a student
                         goToCourseList("student");
                     }
                 }
