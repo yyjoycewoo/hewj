@@ -138,6 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     // If the response is JSONObject instead of expected JSONArray
                     Log.d("LoginActivity", response.toString());
+                    JSONSingleton.getInstance().mJSONObject = response;
                     goToCourseList("instructor");
                 }
 
