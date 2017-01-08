@@ -52,9 +52,13 @@
     <string name="title_wtf">WTF?!</string>
 
     <!-- QuestionActivity -->
-    <string name="question_list_title_text">Select it</string>
+    <string name="question_list_title_text">Choose a question:</string>
     <string name="new_question_button_text">New Question</string>
-    <string name="title_activity_new_question">NewQuestionActivity</string>\
+    <string name="title_activity_new_question">NewQuestionActivity</string>
+    <string name="question1">Mirror mirror on the wall, who is the fairest one of all?</string>
+    <string name="question2">Best character.</string>
+    <string name="question3">Which of the following?</string>
+    <string name="waiting_for_results">Waiting for results...</string>
 
     <!-- NewQuestionActivity -->
     <string name="new_question_prompt">Question:</string>

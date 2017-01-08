@@ -16,6 +16,9 @@ public class QuestionActivity extends AppCompatActivity {
     private LinearLayout mQuestionList;
     private Button mNewQuestionButton;
     private List<String> mQuestions;
+    private Button mQuestion1Button;
+    private Button mQuestion2Button;
+    private Button mQuestion3Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class QuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question);
 
         mQuestionList = (LinearLayout) findViewById(R.id.question_list);
+        mQuestion1Button = (Button) findViewById(R.id.question1);
+        mQuestion2Button = (Button) findViewById(R.id.question2);
+        mQuestion3Button = (Button) findViewById(R.id.question3);
 
         mNewQuestionButton = (Button) findViewById(R.id.new_question);
         mNewQuestionButton.setOnClickListener(new View.OnClickListener() {
@@ -32,22 +38,30 @@ public class QuestionActivity extends AppCompatActivity {
             }
         });
 
-        mQuestions = new ArrayList<>();
-        populateQuestions(mQuestions);
+
+        mQuestion1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mQuestion1Button.setBackgroundColor(getResources().getColor(R.color.emeraldGreen));
+            }
+        });
+
+        mQuestion2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mQuestion2Button.setBackgroundColor(getResources().getColor(R.color.emeraldGreen));
+            }
+        });
+
+        mQuestion3Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mQuestion3Button.setBackgroundColor(getResources().getColor(R.color.emeraldGreen));
+            }
+        });
 
         String questionText = "%s. %s";
 
-        int i;
-        for (i = 0; i < mQuestions.size(); i++) {
-            TextView student = new TextView(this);
-            student.setText(String.format(questionText, i + 1, mQuestions.get(i)));
-            student.setTextSize(getResources().getDimensionPixelSize(R.dimen.tv_textsize));
-            student.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT));
-
-            mQuestionList.addView(student);
-        }
 
         //mQuestionList.getChildAt(1).setBackgroundColor(0xFF00FF00);
     }
@@ -55,28 +69,5 @@ public class QuestionActivity extends AppCompatActivity {
     private void goToNewQuestion() {
         Intent intent = new Intent(this, NewQuestionActivity.class);
         startActivity(intent);
-    }
-
-    private void populateQuestions(List array) {
-        array.add("hi");
-        array.add("world");
-        array.add("hi");
-        array.add("world");
-        array.add("hi");
-        array.add("world");
-        array.add("hi");
-        array.add("world");
-        array.add("hi");
-        array.add("world");
-        array.add("hi");
-        array.add("world");
-        array.add("hi");
-        array.add("world");
-        array.add("hi");
-        array.add("world");
-        array.add("hi");
-        array.add("world");
-        array.add("hi");
-        array.add("world");
     }
 }

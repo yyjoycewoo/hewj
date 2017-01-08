@@ -29,8 +29,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <Button
+                android:id="@+id/question1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question1"/>
+
+            <Button
+                android:id="@+id/question2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question2"/>
+
+            <Button
+                android:id="@+id/question3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question3"/>
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/results_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/waiting_for_results"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/new_question"

@@ -20,6 +20,7 @@ public class AnswerQuestionActivity extends AppCompatActivity {
     private Button mAnswer2Button;
     private Button mAnswer3Button;
     private LinearLayout mAnswerList;
+    private TextView resultsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class AnswerQuestionActivity extends AppCompatActivity {
         mAnswer1Button = (Button) findViewById(R.id.answer1);
         mAnswer2Button = (Button) findViewById(R.id.answer2);
         mAnswer3Button = (Button) findViewById(R.id.answer3);
+        resultsTextView = (TextView) findViewById(R.id.results_text_view);
+        resultsTextView.setVisibility(View.INVISIBLE);
 
         if (questionType == "shortAnswer") {
             mAnswerEditText.setVisibility(View.VISIBLE);
@@ -57,6 +60,7 @@ public class AnswerQuestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAnswer1Button.setBackgroundColor(getResources().getColor(R.color.emeraldGreen));
+                resultsTextView.setVisibility(View.VISIBLE);
             }
         });
 
@@ -64,6 +68,7 @@ public class AnswerQuestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAnswer2Button.setBackgroundColor(getResources().getColor(R.color.emeraldGreen));
+                resultsTextView.setVisibility(View.VISIBLE);
             }
         });
 
@@ -71,6 +76,7 @@ public class AnswerQuestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAnswer3Button.setBackgroundColor(getResources().getColor(R.color.emeraldGreen));
+                resultsTextView.setVisibility(View.VISIBLE);
             }
         });
     }
