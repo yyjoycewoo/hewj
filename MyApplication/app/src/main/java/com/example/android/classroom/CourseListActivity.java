@@ -40,8 +40,7 @@ public class CourseListActivity extends AppCompatActivity {
         if (getIntent().getStringExtra("status").equals("instructor")) {
             intent = new Intent(this, InstructorMenuActivity.class);
             intent.putExtra("courseCode", courseCode);
-        } else {
-            //status is student
+        } else if (getIntent().getStringExtra("status").equals("student")){
             intent = new Intent(this, CourseMenuActivity.class);
             intent.putExtra("courseCode", courseCode);
         }
