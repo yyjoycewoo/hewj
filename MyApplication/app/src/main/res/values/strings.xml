@@ -30,4 +30,11 @@
     <!-- QuestionActivity -->
     <string name="question_list_title_text">Select it</string>
     <string name="new_question_button_text">New Question</string>
+    <string name="title_activity_new_question">NewQuestionActivity</string>\
+
+    <!-- NewQuestionActivity -->
+    <string name="new_question_prompt">Question:</string>
+    <string name="new_question_hint">Enter a question asshole.</string>
+    <string name="new_question_answer_type_prompt">Answer type:</string>
+    <string name="new_question_post_button_text">GO GO GO</string>
 </resources>
